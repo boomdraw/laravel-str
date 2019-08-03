@@ -1,0 +1,49 @@
+{
+    "name": "boomdraw/laravel-str",
+    "description": "Extends \\Illuminate\\Support\\Str with additional string helpers",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Slesarenko",
+            "email": "info@boomdraw.com",
+            "homepage": "https://boomdraw.com",
+            "role": "Owner"
+        }
+    ],
+    "support": {
+        "email": "support@boomdraw.com"
+    },
+    "keywords": [
+        "laravel",
+        "string",
+        "helpers"
+    ],
+    "require": {
+        "illuminate/support": "~5.7|~5.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0|~8.0",
+        "orchestra/testbench": "~3.7|~3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Boomdraw\\Str\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Boomdraw\\Str\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Boomdraw\\Str\\StrServiceProvider"
+            ]
+        }
+    }
+}
