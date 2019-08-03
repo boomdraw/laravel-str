@@ -114,6 +114,18 @@ Str::wbetween('goo foo bar baz haz', 'test ', ' baz', false) === 'goo foo bar ba
 Str::wbetween('goo foo bar baz haz', 'foo ', ' test', false) === 'foo bar baz haz'
 ```
 
+### utrim
+
+The function calls `trim()` function with slash (`/`) and backslash (`\`) added to charlist.
+
+```php
+Str::utrim(string $string): string
+```
+
+```php
+Str::utrim("\hello world \n") === 'hello world'
+```
+
 ## Testing
 
 You can run the tests with:

@@ -29,4 +29,10 @@ class StrTest extends TestCase
         $this->assertSame(Str::wbetween($string, "$u2 ", $u7, false), "$u2 $u3 $u4 $u5");
         $this->assertSame(Str::wbetween($string, $u6, " $u4", false), "$u1 $u2 $u3 $u4");
     }
+
+    public function testUtrim()
+    {
+        $string = uniqid();
+        $this->assertSame(Str::utrim("\\/$string "), $string);
+    }
 }

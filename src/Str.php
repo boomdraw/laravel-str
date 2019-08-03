@@ -53,5 +53,15 @@ class Str
 
         return $string;
     }
+
+    /**
+     * Trim that additionally removes slashes
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function utrim(string $string): string
+    {
+        return trim($string, " \t\n\r\0\x0B/\\");
     }
 }
