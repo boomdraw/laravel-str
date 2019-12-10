@@ -16,16 +16,17 @@ abstract class TestCase extends BaseTestCase
         app('config')->set('app.debug', true);
     }
 
-
     /**
-     * Load package service provider
+     * Load package service provider.
+     *
      * @param \Illuminate\Foundation\Application $app
+     *
      * @return array
      */
     protected function getPackageProviders($app): array
     {
         return [
-            StrServiceProvider::class
+            StrServiceProvider::class,
         ];
     }
 }
