@@ -1,10 +1,9 @@
 <?php
 
-
 namespace Boomdraw\Str\Tests\Unit;
 
-use Illuminate\Support\Str;
 use Boomdraw\Str\Tests\TestCase;
+use Illuminate\Support\Str;
 
 class StrTest extends TestCase
 {

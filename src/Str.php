@@ -1,9 +1,8 @@
 <?php
 
-
 namespace Boomdraw\Str;
 
-use Illuminate\Support\Str as S;
+use Illuminate\Support\Str as BaseStr;
 
 class Str
 {
@@ -13,16 +12,17 @@ class Str
      * @param string $string
      * @param string $start
      * @param string $end
-     * @param bool $strict
+     * @param bool   $strict
+     *
      * @return bool|string
      */
     public static function between(string $string, string $start, string $end, bool $strict = true)
     {
-        if ($strict && (!S::contains($string, $start) || !S::contains($string, $end))) {
+        if ($strict && (!BaseStr::contains($string, $start) || !BaseStr::contains($string, $end))) {
             return false;
         }
-        $string = S::replaceFirst(S::before($string, $start) . $start, '', $string);
-        $string = S::replaceFirst($end . S::after($string, $end), '', $string);
+        $string = BaseStr::replaceFirst(BaseStr::before($string, $start).$start, '', $string);
+        $string = BaseStr::replaceFirst($end.BaseStr::after($string, $end), '', $string);
 
         return $string;
     }
@@ -33,19 +33,20 @@ class Str
      * @param string $string
      * @param string $start
      * @param string $end
-     * @param bool $strict
+     * @param bool   $strict
+     *
      * @return bool|string
      */
     public static function wbetween(string $string, string $start, string $end, bool $strict = true)
     {
-        $hasStart = S::contains($string, $start);
-        $hasEnd = S::contains($string, $end);
+        $hasStart = BaseStr::contains($string, $start);
+        $hasEnd = BaseStr::contains($string, $end);
         if ($strict && (!$hasStart || !$hasEnd)) {
             return false;
         }
         $string = self::between($string, $start, $end, false);
         if ($hasStart) {
-            $string = $start . $string;
+            $string = $start.$string;
         }
         if ($hasEnd) {
             $string .= $end;
@@ -55,9 +56,10 @@ class Str
     }
 
     /**
-     * Trim that additionally removes slashes
+     * Trim that additionally removes slashes.
      *
      * @param string $string
+     *
      * @return string
      */
     public static function utrim(string $string): string
